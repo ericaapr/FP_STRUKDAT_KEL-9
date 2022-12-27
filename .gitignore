@@ -118,3 +118,36 @@ void top_stack()
     	cout << "\nTekan Enter Untuk Melanjutkan\n";
 	getch();
 }
+
+void display_stack()
+{
+	if(top==NULL)
+	{
+		cout << "\nStack Masih Kosong\n";
+		system("pause");
+		return;
+	}
+	cout << endl;
+    cout << "\nData Berat Badan Mahasiswa Informatika : \n";
+	cout << "====================================================================================================\n";
+    cout << "|     NPM     |     NAMA      | JENIS KELAMIN | BERAT | TINGGI |  BMI  |   STATUS   | BERAT IDEAL  |\n";
+    cout << "====================================================================================================\n";
+
+	struct node *temp=top;
+	while(temp!=NULL)
+	{
+
+		cout << "| " << setiosflags(ios::left) << setw(12) << temp->npm << "|";
+		cout << " " << setiosflags(ios::left) << setw(14) << temp->nama << "|";
+		cout << " " << setiosflags(ios::left) << setw(14) << temp->jenis << "|";
+		cout << " " << setiosflags(ios::left) << setw(6) << temp->berat << "|";
+		cout << " " << setiosflags(ios::left) << setw(7) << temp->tinggi << "|";
+		cout << " " << setiosflags(ios::left) << setw(6) << setprecision(3) << temp->bmi << "|";
+		cout << " " << setiosflags(ios::left) << setw(11) << temp->status << "|";
+		cout << " " << setiosflags(ios::left) << setw(13) << temp->ideal << "|";
+		temp=temp->next;
+		cout << "\n====================================================================================================\n";
+	}
+    cout << "\nTekan Enter Untuk Melanjutkan\n";
+	getch();
+}
