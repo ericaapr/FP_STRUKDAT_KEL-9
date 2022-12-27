@@ -151,3 +151,62 @@ void display_stack()
     cout << "\nTekan Enter Untuk Melanjutkan\n";
 	getch();
 }
+
+int main()
+{
+	int pilih;
+	float input_berat, input_tinggi;
+	long long int input_npm;
+	string input_nama, input_jenis;
+
+	while(1)
+	{
+	    system("cls");
+	    cout << "|===================================|\n";
+		cout << "|======= PROGRAM BERAT BADAN =======|\n";
+        cout << "|====== MAHASISWA INFORMATIKA ======|\n";
+		cout << "|===================================|\n";
+		cout << "| [1] Input Data                    |\n";
+		cout << "| [2] Hapus Data Top                |\n";
+		cout << "| [3] Tampilan Data Top             |\n";
+		cout << "| [4] Tampilan Semua Data           |\n";
+		cout << "| [5] Exit                          |\n";
+		cout << "|===================================|\n";
+		cout << "Masukkan Pilihan Anda : ";
+		cin >> pilih;
+
+		switch(pilih)
+		{
+			case(1):
+				cout << "Masukkan NPM          : ";
+				cin >> input_npm;
+				cout << "Masukkan Nama Depan   : ";
+				cin >> input_nama;
+				cout << "Masukkan Jenis Kelamin (L/P) : ";
+				cin >> input_jenis;
+				cout << "Masukkan Berat Badan   (KG)  : ";
+				cin >> input_berat;
+				cout << "Masukkan Tinggi Badan  (CM)  : ";
+				cin >> input_tinggi;
+				push(input_npm,input_nama,input_jenis,input_berat,input_tinggi);
+                system("pause");
+				break;
+			case(2):
+				pop();
+				break;
+			case(3):
+				top_stack();
+				break;
+			case(4):
+				display_stack();
+				break;
+			case(5):
+				exit(0);
+				break;
+			default:
+				cout << "\nPilihan Anda Salah";
+				continue;
+		}
+	}
+	return 0;
+}
