@@ -93,3 +93,28 @@ void pop()
     cout << "\nTekan Enter Untuk Melanjutkan";
 	getch();
 }
+
+void top_stack()
+{
+	if(top==NULL)
+	{
+		cout << "\nStack Masih Kosong\n";
+		system("pause");
+		return;
+	}
+	cout << "\nData Yang Berada Di Top : \n";
+	cout << "====================================================================================================\n";
+    	cout << "|     NPM     |     NAMA      | JENIS KELAMIN | BERAT | TINGGI |  BMI  |   STATUS   | BERAT IDEAL  |\n";
+    	cout << "====================================================================================================\n";
+    	cout << "| " << setiosflags(ios::left) << setw(12) << top->npm << "|";
+    	cout << " " << setiosflags(ios::left) << setw(14) << top->nama << "|";
+    	cout << " " << setiosflags(ios::left) << setw(14) << top->jenis << "|";
+    	cout << " " << setiosflags(ios::left) << setw(6) << top->berat << "|";
+    	cout << " " << setiosflags(ios::left) << setw(7) << top->tinggi << "|";
+    	cout << " " << setiosflags(ios::left) << setw(6) << setprecision(3) << top->bmi << "|";
+    	cout << " " << setiosflags(ios::left) << setw(11) << top->status << "|";
+    	cout << " " << setiosflags(ios::left) << setw(13) << top->ideal << "|";
+    	cout << "\n====================================================================================================\n";
+    	cout << "\nTekan Enter Untuk Melanjutkan\n";
+	getch();
+}
