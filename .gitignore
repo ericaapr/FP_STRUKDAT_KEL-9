@@ -15,3 +15,81 @@ struct node
 	float berat, tinggi, bmi, ideal;
 	struct node *next;
 }*top = NULL;
+
+void push(long long int input_npm, string input_nama, string input_jenis, float input_berat, float input_tinggi)
+{
+    string input_status;
+    float meter, rumusbmi, rumusbroca, hasil;
+	struct node *temp = new(struct node);
+	if(temp==NULL)
+	{
+		cout << "\nStack Penuh\n";
+	}
+	temp->npm = input_npm;
+	temp->nama = input_nama;
+	temp->jenis = input_jenis;
+	temp->berat = input_berat;
+	temp->tinggi = input_tinggi;
+
+	meter = input_tinggi/100;
+	rumusbmi = (input_berat/(meter*meter));
+	temp->bmi = rumusbmi;
+
+	if (rumusbmi<18.5)
+    {
+        input_status = "Kurus";
+    }
+    else if (rumusbmi<=24.9)
+    {
+        input_status = "Normal";
+    }
+    else if (rumusbmi<29.9)
+    {
+        input_status = "Overweight";
+    }
+    else
+    {
+        input_status = "Obesitas";
+    }
+    temp->status = input_status;
+
+    if (input_jenis == "L")
+    {
+        rumusbroca= ((input_tinggi-100)-(0.10*(input_tinggi-100)));
+        hasil = rumusbroca;
+    }
+    else
+    {
+        rumusbroca = ((input_tinggi-100)-(0.15*(input_tinggi-100)));
+        hasil = rumusbroca;
+    }
+    temp->ideal = hasil;
+    temp->next = top;
+	top = temp;
+}
+
+void pop()
+{
+	if(top==NULL)
+	{
+		cout << "\nStack Masih Kosong\n";
+		system("pause");
+		return;
+	}
+	cout << "\nData Yang Dihapus : \n";
+	cout << "====================================================================================================\n";
+    cout << "|     NPM     |     NAMA      | JENIS KELAMIN | BERAT | TINGGI |  BMI  |   STATUS   | BERAT IDEAL  |\n";
+    cout << "====================================================================================================\n";
+    cout << "| " << setiosflags(ios::left) << setw(12) << top->npm << "|";
+    cout << " " << setiosflags(ios::left) << setw(14) << top->nama << "|";
+    cout << " " << setiosflags(ios::left) << setw(14) << top->jenis << "|";
+    cout << " " << setiosflags(ios::left) << setw(6) << top->berat << "|";
+    cout << " " << setiosflags(ios::left) << setw(7) << top->tinggi << "|";
+    cout << " " << setiosflags(ios::left) << setw(6) << setprecision(3) << top->bmi << "|";
+    cout << " " << setiosflags(ios::left) << setw(11) << top->status << "|";
+    cout << " " << setiosflags(ios::left) << setw(13) << top->ideal << "|";
+    cout << "\n====================================================================================================\n";
+	top = top->next;
+    cout << "\nTekan Enter Untuk Melanjutkan";
+	getch();
+}
