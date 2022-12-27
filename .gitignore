@@ -1,32 +1,17 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iomanip>
+#include <string>
+#include <conio.h>
+#include <cmath>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+struct node
+{
+    long long int npm;
+	string nama, jenis, status;
+	float berat, tinggi, bmi, ideal;
+	struct node *next;
+}*top = NULL;
